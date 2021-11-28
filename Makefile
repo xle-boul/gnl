@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: xle-boul <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: xle-boul <xle-boul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/21 20:50:19 by xle-boul          #+#    #+#              #
-#    Updated: 2021/11/22 19:40:03 by xle-boul         ###   ########.fr        #
+#    Updated: 2021/11/28 16:16:19 by xle-boul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRCS = get_next_line.c get_next_line_utils.c
 
 CC = gcc
 
-CC_FLAGS = -Werror -Wall -Wextra
+CC_FLAGS = -Werror -Wall -Wextra -g
 
 BUF = -D BUFFER_SIZE=4
 
