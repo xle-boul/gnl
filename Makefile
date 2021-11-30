@@ -6,7 +6,7 @@
 #    By: xle-boul <xle-boul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/21 20:50:19 by xle-boul          #+#    #+#              #
-#    Updated: 2021/11/28 16:16:19 by xle-boul         ###   ########.fr        #
+#    Updated: 2021/11/30 16:38:46 by xle-boul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ SRCS = get_next_line.c get_next_line_utils.c
 
 CC = gcc
 
-CC_FLAGS = -Werror -Wall -Wextra -g
+# CC_FLAGS = -Werror -Wall -Wextra -g
 
-BUF = -D BUFFER_SIZE=4
+BUF = -D BUFFER_SIZE=40
 
 all:
 	$(CC) $(CC_FLAGS) $(SRCS)

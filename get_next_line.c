@@ -6,7 +6,7 @@
 /*   By: xle-boul <xle-boul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 20:44:33 by xle-boul          #+#    #+#             */
-/*   Updated: 2021/11/28 16:54:34 by xle-boul         ###   ########.fr       */
+/*   Updated: 2021/11/30 16:37:17 by xle-boul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,56 +76,71 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (new);
 }
 
-char	*ft_strpaste(char *buf, char *temp)
+char	*ft_add_last(char *line, char c)
 {
-	char	*new_temp;
-	char	*old_temp;
+	int		i;
+	char	*temp;
 
-	printf("buf = %s\n\n", buf);
-	new_temp = NULL;
-	old_temp = temp;
-	if (!temp)
-		new_temp = ft_substr(buf, 0, (ft_strlen(buf) + 1));
-	if (temp)
+	i = 0;
+	if (line == NULL)
 	{
-		new_temp = ft_strjoin(temp, buf);
-		free(old_temp);
+		temp = malloc(sizeof(char) * 2);
+		if (!temp)
+			return (NULL);
+		temp[0] = c;
+		temp[1] = '\0';
+		return (temp);
 	}
-	return (new_temp);
+	while (line[i] != '\0')
+		i++;
+	temp = malloc(sizeof(char) * (i + 1));
+	if (!temp)
+		return (NULL);
+	temp = ft_substr(line, 0, i);
+	temp[i] = c;
+	temp [i + 1] = '\0';
+	free (line);
+	return (temp);
 }
 
 char	*get_next_line(int fd)
 {
 	char			*line;
 	char			buf[BUFFER_SIZE + 1];
-	static char		*patch;
-	char			*temp;
 	int				i;
+	int				end;
+	static char		*patch;
 
-	i = 0;
-	temp = NULL;
-	// while (read(fd, buf, BUFFER_SIZE) == BUFFER_SIZE)
-	// 	temp = ft_strpaste(buf, temp);
-	// temp = ft_strpaste(buf, temp);
-	// printf("%s\n", temp);
-	i = 0;
-	line = (NULL);
-	if (!patch)
-		temp = buf;
-	else
-		temp = patch;
-	while (temp[i] != '\0')
+	line = NULL;
+	while (1)
 	{
-		if (temp[i] == '\n')
+		end = read(fd, buf, BUFFER_SIZE);
+		buf[end] = '\0';
+		if (end == 0 || fd < 1)
+			return (NULL);
+		i = 0;
+		if (patch)
 		{
-			line = ft_substr(temp, 0, (i + 1));
-			patch = ft_substr(temp, (i + 1), BUFFER_SIZE);
-			break ;
+			line = patch;
+			patch = NULL;
 		}
-		i++;
+		while (buf[i] != '\0')
+		{
+			line = ft_add_last(line, buf[i]);
+			if (buf[i] == '\n')
+			{
+				i++;
+				if (i < BUFFER_SIZE)
+					patch = ft_substr(buf, i, BUFFER_SIZE + 1);
+				else
+					patch = NULL;
+				return (line);
+			}
+			i++;
+		}
+		if (end == 0)
+			break ;
 	}
-	if (temp[i] == '\0')
-		line = ft_substr(temp, 0, (i + 1));
 	return (line);
 }
 
@@ -134,7 +149,17 @@ int main()
 	int		fd;
 
 	fd = open("test.txt", O_RDONLY);
-	get_next_line(fd);
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
 	close (fd);
-	return 0;
+	return (0);
 }
