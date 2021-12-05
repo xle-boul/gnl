@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: xle-boul <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: xle-boul <xle-boul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/21 20:50:19 by xle-boul          #+#    #+#              #
-#    Updated: 2021/12/01 11:22:40 by xle-boul         ###   ########.fr        #
+#    Updated: 2021/12/05 16:16:22 by xle-boul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = get_next_line.c 
+SRCS = gnl.c get_next_line_utils.c 
 
 CC = gcc
 
-# CC_FLAGS = -Werror -Wall -Wextra -g
+CC_FLAGS = -Werror -Wall -Wextra -g
 
 BUF = -D BUFFER_SIZE=40
 
