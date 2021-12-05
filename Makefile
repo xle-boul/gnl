@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: xle-boul <xle-boul@student.42.fr>          +#+  +:+       +#+         #
+#    By: xle-boul <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/21 20:50:19 by xle-boul          #+#    #+#              #
-#    Updated: 2021/11/30 16:38:46 by xle-boul         ###   ########.fr        #
+#    Updated: 2021/12/01 11:22:40 by xle-boul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = get_next_line.c get_next_line_utils.c
+SRCS = get_next_line.c 
 
 CC = gcc
 

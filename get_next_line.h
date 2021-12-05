@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xle-boul <xle-boul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: xle-boul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 20:44:46 by xle-boul          #+#    #+#             */
-/*   Updated: 2021/11/30 16:38:27 by xle-boul         ###   ########.fr       */
+/*   Updated: 2021/12/02 12:53:56 by xle-boul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE
+#  define BUFFER_SIZE 1
 # endif
 
 # include <stdlib.h>
