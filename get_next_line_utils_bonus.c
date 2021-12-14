@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xle-boul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: xle-boul <xle-boul@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 13:55:24 by xle-boul          #+#    #+#             */
-/*   Updated: 2021/12/12 14:27:33 by xle-boul         ###   ########.fr       */
+/*   Updated: 2021/12/14 20:14:23 by xle-boul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_mallocable(char *patch)
 	int		i;
 	char	*str;
 
+	str = NULL;
 	i = 0;
 	if (!patch[i])
 		return (NULL);

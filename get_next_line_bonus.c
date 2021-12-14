@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xle-boul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: xle-boul <xle-boul@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 13:55:03 by xle-boul          #+#    #+#             */
-/*   Updated: 2021/12/12 14:27:18 by xle-boul         ###   ########.fr       */
+/*   Updated: 2021/12/14 20:38:01 by xle-boul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_get_that_line(char *patch)
 {
@@ -109,14 +109,14 @@ char	*ft_feed_patch(int fd, char *patch)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*patch;
+	static char	*patch[10240];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	patch = ft_feed_patch(fd, patch);
-	if (!patch)
+	patch[fd] = ft_feed_patch(fd, patch[fd]);
+	if (!patch[fd])
 		return (NULL);
-	line = ft_get_that_line(patch);
-	patch = ft_new_patch(patch);
+	line = ft_get_that_line(patch[fd]);
+	patch[fd] = ft_new_patch(patch[fd]);
 	return (line);
 }
